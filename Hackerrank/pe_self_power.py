@@ -1,4 +1,5 @@
 N = (int)(input())
+mod = 10**10
 prod = 0
 for i in range(1,N+1):
 	prod += i**i

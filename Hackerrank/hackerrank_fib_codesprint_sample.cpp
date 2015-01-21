@@ -5,7 +5,7 @@ typedef long long LL;
 #define mod 100000007
 
 
-LL fibs[100000000] = {0};
+LL fibs[1000000] = {0};
 map<int,LL> fibo;
 
 int main()
