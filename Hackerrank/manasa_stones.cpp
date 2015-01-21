@@ -1,4 +1,5 @@
 #include <iostream>
+#include <algorithm>
 typedef long long LL;
 using namespace std;
 
@@ -13,6 +14,10 @@ int main()
       LL n,a,b;
       cin>>n>>a>>b;
 
+      if( a == b )
+        cout<<a*(n-1)<<endl;
+
+      else {
       LL diff = abs(b-a);
       LL x1 = a*(n-1);
       LL x2 = b*(n-1);
@@ -24,6 +29,7 @@ int main()
         cout<<i<<" ";
 
       cout<<endl;
+    }
   }
 
   return 0;
