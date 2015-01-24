@@ -14,7 +14,7 @@ int main()
   cin>>N;
 
 
-  vector<long> array(1000000);
+  vector<long> array(1000001);
 
   for(long i = 1 ; i < N+1 ;i++)
   {
@@ -36,13 +36,9 @@ int main()
 
 long long int sum = 0;
   for(long i = 0 ; i < numbers.size() ; i++)
-  {
-
      sum += (long long int)pow(numbers[i],2)-numbers[i];
 
-  }
-
-  cout<<sum<<endl;
+    cout<<sum<<endl;
 
 
 }
