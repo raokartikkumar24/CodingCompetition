@@ -1,40 +1,51 @@
-#include<iostream>
-#include<vector>
-#include<algorithm>
+#include <iostream>
+#include <vector>
+#include <algorithm>
 using namespace std;
+
 
 int main()
 {
 
-	int T;
-	cin>>T;
-	while( T-- )
-	{
+  long T;
+  cin>>T;
+  while( T-- ) {
+  long N;
+  cin>>N;
 
-		long N;
-		cin>>N;
-		long *v = new long[N];
-		
 
-		for (int p = 0; p < N; ++p)
-			cin>>v[p];
-		
-		sort(v,v+N);
+  vector<long> array(1000000);
 
-		long count = 0;
-		int i,j;
-		for(i=0;i<N;i++)
-		{
-			for ( j = i+1; j < N; ++j)
-				{
-					if(v[i] == v[j] && i != j)
-						count++;
-				}	
-		}
+  for(long i = 1 ; i < N+1 ;i++)
+  {
+    long val;
+    cin>>val;
+    array[val]++;
 
-		cout<<count*2<<endl;
-		delete [] v;
+  }
 
-	}
 
+
+  vector<long> numbers;
+  for(long i = 1 ; i < array.size() ;i++)
+  {
+      if( array[i] > 1)
+      numbers.push_back(array[i]);
+  }
+
+
+long long int sum = 0;
+  for(long i = 0 ; i < numbers.size() ; i++)
+  {
+
+     sum += (long long int)pow(numbers[i],2)-numbers[i];
+
+  }
+
+  cout<<sum<<endl;
+
+
+}
+
+  return 0;
 }
