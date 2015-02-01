@@ -27,8 +27,6 @@ int main()
 				i++;
 				j--;
 			}
-			int ipos = i;
-			int jpos = j;
 			if(str2[i] == str2[j-1] )
 				cout<<j<<endl;
 				
