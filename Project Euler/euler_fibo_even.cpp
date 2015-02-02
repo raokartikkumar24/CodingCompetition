@@ -37,7 +37,8 @@ int main() {
    // calculateFib();
     //long T;
    // cin>>T;
-    L NN = 4000000;
+    L NN ;
+	cin>>NN;
     
     isfibo(NN);
 	
