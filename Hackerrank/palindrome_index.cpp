@@ -27,12 +27,18 @@ int main()
 				i++;
 				j--;
 			}
-			if(str2[i] == str2[j-1] )
-				cout<<j<<endl;
-				
+
+			if( str2[i] == str2[j-1])
+			{
+
+				if(str2[i+1] == str2[j-2])
+					cout<<j<<endl;
+				else
+					cout<<i<<endl;
+
+			}
 			else
 				cout<<i<<endl;
-				
 		
 	}
 
