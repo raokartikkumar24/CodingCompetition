@@ -18,7 +18,7 @@ int main()
 		cin>>q;
 
 		double result = sqrt(2*L*L)-sqrt(2*q);
-		printf("%2f",result);
+		printf("%.4f",result);
 
 	}
 

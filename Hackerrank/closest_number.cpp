@@ -1,34 +1,32 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
+typedef long long LL;
 using namespace std;
 
 int main()
 {
 	
-	int N;
+	LL N;
 	cin>>N;
-	vector<int> numbers(N);
+	vector<LL> numbers(N);
 
-	for(int i = 0 ; i < N ;++i)
-		cin>>numbers[i];
+	for(LL i = 0 ; i < N ;++i)
+	{
+		LL n;
+		cin>>n;
+		numbers.push_back(n);
+	}
 
 	sort(numbers.begin(), numbers.end());
 
-
-	int mini = 0;
-	int idx = 0,jdx = N-1;
-	int tempval;
-	for(;;)
+	LL minn ;
+	for (LL i = 0; i < numbers.size(); ++i)
 	{
-		mini = max(abs(numbers[jdx]-numbers[idx]),mini);
-		idx++;
-		jdx--;
-		if( idx >= jdx)
-			break;
+		minn = min(minn,abs(numbers[i] - numbers[i+1]));
+		cout<<abs(numbers[i] - numbers[i+1])<<" "<<numbers[i]<<" "<<numbers[i-1]<<endl;
 	}
-
-	cout<<mini<<endl;
+	
 
 	return 0;
 
