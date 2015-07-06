@@ -28,7 +28,6 @@ public:
 
 CGraph::CGraph(int n, int e) : m_nNodes(n), m_nEdge(e){
 
-	//cout<<"Creating graph object with "<<n<<" nodes"<<" and "<<e<<" m_vEdges"<<endl;
 	for (int i = 0; i < m_nNodes; ++i) {
 		std::vector<int> v;
 		CGraph::m_vEdges.push_back(v);
@@ -81,17 +80,13 @@ public:
 		queue<int> bfs_q;
 		marked[v] = true;
 		distance[v] = 0;
-		//int ndistance = 1;
 		
 		bfs_q.push(v);
 
 		while (!bfs_q.empty())
 		{
-			
-			//cout<<"Inside queue"<<endl;
 			int u = bfs_q.front();
 			bfs_q.pop();
-			//	cout << "Next node to be processed " << u << endl;
 			for (int i = 0; i < m_gGraph.m_vEdges[u].size(); ++i)
 			{
 				if (!marked[m_gGraph.m_vEdges[u][i]])
@@ -99,7 +94,6 @@ public:
 					marked[m_gGraph.m_vEdges[u][i]] = true;
 					bfs_q.push(m_gGraph.m_vEdges[u][i]);
 					//edgeTo[m_gGraph.m_vEdges[u][i]] = u;
-					//if(distance[m_gGraph.m_vEdges[u][i]] < ndistance )
 					distance[m_gGraph.m_vEdges[u][i]] = distance[u]+1;
 				}
 			}
