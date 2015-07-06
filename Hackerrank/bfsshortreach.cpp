@@ -80,7 +80,8 @@ public:
 	{
 		queue<int> bfs_q;
 		marked[v] = true;
-		int ndistance = 1;
+		distance[v] = 0;
+		//int ndistance = 1;
 		
 		bfs_q.push(v);
 
@@ -99,12 +100,9 @@ public:
 					bfs_q.push(m_gGraph.m_vEdges[u][i]);
 					//edgeTo[m_gGraph.m_vEdges[u][i]] = u;
 					//if(distance[m_gGraph.m_vEdges[u][i]] < ndistance )
-					distance[m_gGraph.m_vEdges[u][i]] = ndistance;
+					distance[m_gGraph.m_vEdges[u][i]] = distance[u]+1;
 				}
-
-
 			}
-			ndistance++;
 
 		}
 
