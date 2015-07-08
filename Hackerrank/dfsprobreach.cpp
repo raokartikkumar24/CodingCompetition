@@ -148,7 +148,7 @@ int main()
 
 		}
 
-		cout << allprobs << endl;
+		cout << (int)allprobs << endl;
 
 	}
 	return 0;
