@@ -52,7 +52,6 @@ public:
 		for (int i = 0; i < vertex; ++i)
 		{
 			marked.push_back(false); //initially everything is unvisited
-			edgeTo.push_back(-1); // init to soemthing 
 		}
 	}
 
@@ -72,27 +71,17 @@ public:
 		}
 	}
 
-	void printTo()
-	{
-
-		for (int i = 0; i < edgeTo.size(); ++i)
-		{
-			cout << edgeTo[i] << " ";
-		}
-		cout << endl;
-	}
-
 	void reset()
 	{
+		marked.clear();
 		for (int i = 0; i < nVertexs; ++i)
 		{
-			marked.push_back(false); //initially everything is unvisited
+			marked.push_back(false); 
 		}
 	}
 	vector<bool> marked;
 private:
 	
-	vector<int> edgeTo;
 	CGraph m_OGraph;
 	int nVertexs;
 
@@ -120,7 +109,6 @@ int main()
 				int l;
 				cin >> l;
 				graph.addEdges(curr_node, l - 1);
-
 
 			}
 			curr_node++;
