@@ -1,4 +1,5 @@
 #include <iostream>
+#include <stack>
 using namespace std;
 
 class tree {
@@ -50,6 +51,36 @@ void print_right(tree *root)
     }
   }
 
+  void top_view_stack(tree *root)
+  {
+    stack<int> st;
+    tree *temp = root;
+    while( temp != NULL)
+    {
+        st.push(temp->data);
+        temp = temp->left;
+
+    }
+
+    while( !st.empty() )
+    {
+        cout << st.top() << " ";
+        st.pop();
+    }
+
+
+    root = root->right; // already printed the root
+    while( root != NULL) {
+      cout << root->data << " ";
+      root = root->right;
+    }
+
+    cout << endl;
+
+
+
+  }
+
 private:
   tree *left;
   tree *right;
@@ -60,16 +91,19 @@ int main()
 {
   tree *root = NULL;
   
-  root = root->insert(root,3);
-  root = root->insert(root,5);
-  root = root->insert(root,1);
-  root = root->insert(root,4);
-  root = root->insert(root,6);
-  root = root->insert(root,2);
-  root = root->insert(root,7);
-  root = root->insert(root,8);
+  root = root->insert(root,50);
+  root = root->insert(root,40);
+  root = root->insert(root,60);
+  root = root->insert(root,30);
+  root = root->insert(root,45);
+  root = root->insert(root,55);
+  root = root->insert(root,65);
 
   root->top_view(root);
+
+  cout << endl;
+
+  root->top_view_stack(root);
 
   return 0;
 }
