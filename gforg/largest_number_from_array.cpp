@@ -4,8 +4,11 @@
 #include <algorithm>
 using namespace std;
 
-bool compare(string &s1, string &s2){
-    return s1 > s2;
+bool compare(string s1, string s2){
+   string x = s1.append(s2);
+   string y = s2.append(s1);
+
+    return x > y;
 }
 
 // Driver program
@@ -23,12 +26,10 @@ int main()
     
     sort(sNums.begin(),sNums.end(),compare);
     
-    string result = "";
     for(int i = 0 ; i < N; i++){
-        result += sNums[i];
-    }
-    
-    cout << result << '\n';
+	cout << sNums[i];
+	}
+	cout << endl;
     }
     return 0;
 }
