@@ -61,10 +61,45 @@ using namespace std;
 		return numeric;
 	}
 
+int romanToIntNew(string s) {
+		map<char, int> symbol_values;
+		symbol_values['I'] = 1;
+		symbol_values['V'] = 5;
+		symbol_values['X'] = 10;
+		symbol_values['L'] = 50;
+		symbol_values['C'] = 100;
+		symbol_values['D'] = 500;
+		symbol_values['M'] = 1000;
+
+		int decimal = 0;
+		for (int i = 0; i < s.length(); i++) {
+
+			int val = symbol_values[s[i]];
+
+			if (i + 1 < s.length()) {
+				int val2 = symbol_values[s[i + 1]];
+				if (val >= val2) {
+					decimal = decimal + val;
+				}
+				else {
+					decimal = decimal + (val2 - val);
+					i++;
+				}
+			}
+			else {
+				decimal = decimal + val;
+			}
+
+		}
+		return decimal;
+	}
 
 int main()
 {
-	int r = romanToInt("MCMXCIV");
+	int r = romanToIntNew("MCMXCIV");
+	std::cout << "MCMXCIV is \t" << r << "\n";
+	int r2 = romanToIntNew("III");
+	std::cout << "III is \t" << r2 << "\n";
 
 	return 0;
 }
