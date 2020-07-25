@@ -5,6 +5,8 @@
  using namespace std;
 
  string longestCommonPrefix(vector<string>& strs) {
+
+     if(strs.size() == 0) return "";
         
         string result = "";
         int minLen = strs[0].length();
@@ -38,7 +40,7 @@ int main() {
 
     string lcp = longestCommonPrefix(inputStrings);
 
-    cout << lcp < "\n";
+    cout << lcp << "\n";
 
     return 0;
 
