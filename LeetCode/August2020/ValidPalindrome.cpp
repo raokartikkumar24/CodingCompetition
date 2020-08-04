@@ -6,6 +6,35 @@ using namespace std;
 
 class Solution {
 public:
+
+    bool isPalindrome2(string s){
+
+        if(s.empty()) return true;
+
+        int len = s.length();
+
+        int i = 0, j = len - 1;
+
+        while( i < j) {
+
+                if(!isalnum(s[i])) {
+                    i++;
+                    continue;
+                }
+                if(!isalnum(s[j])) {
+                    j--;continue;
+                }
+
+                if(tolower(s[i]) != tolower(s[j]))
+                    return false;
+                i++;j--;
+        }
+
+        return true;
+
+    }
+
+
     bool isPalindrome(string s) {
         
         int len = s.length();
@@ -52,6 +81,9 @@ int main()
     cout << in << "\n";
 
     string output = (sol.isPalindrome(in) == 1) ? "Valid Palindrome" : "Invalid Palindrome";
+    cout <<  output << "\n";
+
+    output = (sol.isPalindrome2(in) == 1) ? "Valid Palindrome" : "Invalid Palindrome";
     cout <<  output << "\n";
 
     return 0;
