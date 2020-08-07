@@ -1,6 +1,7 @@
 #include <iostream>
 #include <map>
 #include <vector>
+#include <queue>
 
 using namespace std;
 
@@ -70,6 +71,41 @@ public:
         return maxWidth;
         
     }
+
+    int maxWidthUsingQueue(TreeNode* root) {
+
+        queue<TreeNode*> q;
+
+        q.push(root);
+
+        int maxWidth = 0;
+
+        while(!q.empty()) {
+
+            int count = (int)q.size();
+
+            maxWidth = max(maxWidth, count);
+
+            while(count--) {
+
+                    TreeNode *children = q.front();
+
+                    q.pop();
+
+                    if(children->left != nullptr) {
+                        q.push(children->left);
+                    }
+                    if(children->right != nullptr) {
+                        q.push(children->right);
+                    }
+
+            }
+
+        }
+
+        return maxWidth;
+
+    }
     
 private:
 TreeNode *left;
@@ -90,7 +126,7 @@ int main()
     root = root->insert(root,90);
     root = root->insert(root,100);
    
-   int val = root->widthOfBinaryTreeNode(root);
+   int val = root->maxWidthUsingQueue(root);
    cout << val << "\n";
     
 	return 0;
